@@ -5,7 +5,7 @@ const journalEntry = {
     mood: "Angry"
 }
 
-const objectsAndLoops = [""];
+const objectsAndLoops = [];
 
 objectsAndLoops.push(journalEntry);
 
@@ -21,3 +21,6 @@ const cssSelecting = {
     concepts: "Selecting by specificity";
     contents: "Learned how to "
 }
+
+gitFlow.push(journalEntry);
+cssSelecting.push(journalEntry);
