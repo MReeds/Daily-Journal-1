@@ -1,3 +1,6 @@
+import API from "./data.js"
+import renderJournalEntries from "./entriesDOM"
+
 const getEntries = () => {
     const journalAPI = "http://localhost:3000/journalEntries";
     fetch(journalAPI)
@@ -7,21 +10,14 @@ const getEntries = () => {
     })};
 
     getEntries();
-    
-    
-    /*
-    Now that you've defined an object whose responsibility is to access the data, 
-    you need to write code in src/scripts/journal.js to use that object and get the data.
-    Once you know you have the data, pass it along to the renderJournalEntries function that 
-    now lives in src/scripts/entriesDom.js. 
-    */
-    /*
-    Main application logic that uses the functions and objects
-    defined in the other JavaScript files.
-
-    Change the fake variable names below to what they should be
-    to get the data and display it.
-*/
 
 API.getJournalEntries().then(renderJournalEntries)
-// objectWithGetterMethod.methodToGetData().then(functionThatRendersData)
+
+export default getEntries
+/*
+The other three modules (data.js, entriesDOM.js and entryComponent.js) 
+have methods that are being used outside the scope of the module. 
+So add export statements to these modules.
+
+Add import statements at the top the appropriate modules 
+so that each module is importing any module it needs.*/

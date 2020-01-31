@@ -1,3 +1,4 @@
+
 const makeJournalEntryComponent = (journalEntry) => {
     return `
     <section class="journal-entries">
@@ -9,3 +10,5 @@ const makeJournalEntryComponent = (journalEntry) => {
     </section>
     `
 };
+
+export default makeJournalEntryComponent
