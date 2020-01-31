@@ -1,4 +1,3 @@
-
 const makeJournalEntryComponent = (journalEntry) => {
     return `
     <section class="journal-entries">
