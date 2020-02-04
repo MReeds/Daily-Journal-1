@@ -4,6 +4,7 @@ const makeJournalEntryComponent = (journalEntry) => {
         <div>
             <h1>${journalEntry.concepts}</h1>
             <section>${journalEntry.contents}</section>
+            <section>${journalEntry.mood}!</section>
             <aside>${journalEntry.date}</aside>
         </div>
     </section>

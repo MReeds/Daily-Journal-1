@@ -1,14 +1,21 @@
-import makeJournalEntryComponent from "./entryComponent.js"
-
 const entryContainer = document.querySelector(".entryLog");
 
 const renderJournalEntries = (entries) => {
-    for (let i = 0; i < entries.length; i++) {
-        const journalEntry = entries[i];
-        entryContainer.innerHTML += makeJournalEntryComponent(
-        journalEntry
-    )
-}
+    const newArray = entries.reverse()
+    entryContainer.innerHTML = '';
+    newArray.forEach(entry => {
+        entryContainer.innerHTML += `
+        <section class="journal-entries">
+            <div>
+                <h1>${entry.concepts}</h1>
+                <section>${entry.contents}</section>
+                <section>${entry.mood}!</section>
+                <aside>${entry.date}</aside>
+            </div>
+        </section>
+        `
+    });
 }
 
-export default renderJournalEntries
+
+export default renderJournalEntries;
