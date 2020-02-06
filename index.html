@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <link rel="stylesheet" href="styles/journal.css">
     <meta charset="UTF-8">
@@ -7,36 +8,48 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+
 <body>
     <h1>Daily Journal 1</h1>
     <form action="">
         <fieldset>
             <label for="journalDate">Date of entry</label>
-                <input type="date" name="journalDate" id="journalDate">
+            <input type="date" name="journalDate" id="journalDate">
         </fieldset>
         <fieldset>
             <label for="conceptsCovered">Concepts covered</label>
-                <input type="text" name="concepts" id="concepts">
+            <input type="text" name="concepts" id="concepts">
         </fieldset>
         <fieldset>
             <label for="journalEntry">Journal entry</label>
-                <input type="text" name="entry" id="contents">
+            <input type="text" name="entry" id="contents">
         </fieldset>
         <fieldset>
             <label for="moodForTheDay">Mood for the day</label>
-                <select name="moods" id = "mood">
-                    <option value="angry">Angry</option>
-                    <option value="confused">Confused</option>
-                    <option value="sad">Sad</option>
-                    <option value="happy">Happy</option>
-                    <option value="excited">Excited</option>
-                </select>
+            <select name="moods" id="mood">
+                <option value="angry">Angry</option>
+                <option value="confused">Confused</option>
+                <option value="sad">Sad</option>
+                <option value="happy">Happy</option>
+                <option value="excited">Excited</option>
+            </select>
         </fieldset>
-                <input id= "record-button" type="button" value="Record Journal Entry">
+        <input id="record-button" type="button" value="Record Journal Entry">
+        <fieldset>
+            <legend>
+                <label for="moodSelector"><strong>Filter Journal Entries by Mood</strong></label>
+                <input type="radio" value="angry" name="mood">Angry
+                <input type="radio" value="confused" name="mood">Confused
+                <input type="radio" value="sad" name="mood">Sad
+                <input type="radio" value="happy" name="mood">Happy
+                <input type="radio" value="excited" name="mood">Excited
+            </legend>
+        </fieldset>
     </form>
     <article class="entryLog">
 
     </article>
     <script type="module" src="scripts/journal.js"></script>
 </body>
+
 </html>

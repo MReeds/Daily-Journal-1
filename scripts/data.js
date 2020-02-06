@@ -22,8 +22,14 @@ const apiActions = {
             },
             body: JSON.stringify(journalEntryObject)
         }).then(response => response.json());
+    },
+
+    deleteJournalEntry(journalEntryId){
+        return fetch(`${baseUrl}/journalEntries/${journalEntryId}`, {
+            method: "DELETE"
+        });
     }
-}
+};
 
 //     deleteJournalEntry: (object) => {
 
