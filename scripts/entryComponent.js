@@ -5,11 +5,14 @@ const journalCardBuilderObj = {
         <section class="journal-entries--${journalEntry.id}">
         <div>
         <h1>${journalEntry.concepts}</h1>
+        <aside>${journalEntry.date}</aside>
         <section>${journalEntry.contents}</section>
         <section>${journalEntry.mood}!</section>
-        <aside>${journalEntry.date}</aside>
         </div>
-        <button id="deleteEntry--${journalEntry.id}" class="deleteBtn">Delete</button>
+        <button id="editEntry--${journalEntry.id}">Edit Entry</button>
+        <button id="deleteEntry--${journalEntry.id}" class="deleteBtn">
+        Delete
+        </button>
         </section>
         `
     }
