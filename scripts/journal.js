@@ -1,20 +1,24 @@
-import eventManager from "./entriesAddEvent.js"
+import saveEntryBtn from "./saveEntryBtn.js"
 import apiActions from "./data.js";
+import events from "./entriesAddEvent.js"
 import domOperations from "./entriesDOM.js";
 import radioButtonManager from "./buttonEvent.js"
 
 
 apiActions.getEntries()
     .then(domOperations.renderJournalEntries)
-eventManager.buttonFunction();
+saveEntryBtn.buttonFunction();
 radioButtonManager.radioBtnFunction()
-eventManager.entryDeleteEventListener()
+events.entryDeleteEventListener()
+
 
 
 
 /*
-Once you have successfully retrieved the value of ok, happy, or sad
-based on which radio button was clicked, you need to filter all of the journal entries. 
-The most straightforward way of doing this is to invoke the getJournalEntries()
-method on your data manager object - which will get all entries - and then use the filter() 
-array method to extract only the entries that have the same mood as the one the user clicked on.*/
+Add edit button to journal entry -- done
+Add hidden input field to form to store id value of edited entry -- done
+Add event listener to button. Give unique id which includes id property of entry
+When clicked, get the individual entry and populate the form fields with text content.
+When user clicks the save button, determine if editing or creating (does hidden input field have a value?)
+If editing, perform a PUT request to the API
+Get all entries and display again*/

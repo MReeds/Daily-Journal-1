@@ -23,24 +23,21 @@ const apiActions = {
             body: JSON.stringify(journalEntryObject)
         }).then(response => response.json());
     },
-
-    deleteJournalEntry(journalEntryId){
+    updateEntry(entry) {
+        return fetch(`${baseUrl}/journalEntries/${entry.id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify(entry)
+        })
+    },
+    deleteJournalEntry(journalEntryId) {
         return fetch(`${baseUrl}/journalEntries/${journalEntryId}`, {
             method: "DELETE"
         });
-    }
+    },
+
 };
-
-//     deleteJournalEntry: (object) => {
-
-//         return fetch("")
-
-//     },
-
-//     updateJournalEntry: (id,object) => {
-
-//         return fetch("")
-//     }
-// };
 
 export default apiActions

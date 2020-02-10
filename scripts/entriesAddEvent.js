@@ -1,79 +1,47 @@
 import apiActions from "./data.js";
 import domOperations from "./entriesDOM.js"
 
+const editFormFields = entryId => {
+    const hiddenEntryId = document.querySelector("#entryId");
+    const entryDate = document.querySelector("#journalDate");
+    const entryConcepts = document.querySelector("#concepts");
+    const entryContents = document.querySelector("#contents");
+    const entryMood = document.querySelector("#mood");
 
-let eventManager = {
-
-    buttonFunction: () => {
-
-        let button = document.getElementById("record-button");
-
-        button.addEventListener("click", () => {
-            // console.log("button has been clicked")
-            const journalDate = document.querySelector("#journalDate").value;
-            const journalConcepts = document.querySelector("#concepts").value;
-            const journalEntry = document.querySelector("#contents").value;
-            const journalMood = document.querySelector("#mood").value
-            // console.log(journalDate, journalConcepts, journalEntry, journalMood)
-
-            const journalEntryObject = domOperations.journalEntryFactory(journalDate, journalConcepts, journalEntry, journalMood)
-
-            if (journalDate && journalConcepts && journalEntry && journalMood) {
-                console.log("Thanks for filling out your journal!")
-                apiActions.saveJournalEntry(journalEntryObject).then(apiActions.getEntries).then(domOperations.renderJournalEntries)
-            } else {
-                alert("Please fill out the form.")
-                console.log("Please, fill it out!")
-            };
+    // TODO: refactor this fetch call into the data file. Then look into the error that is resulting in the values being undefined
+    return fetch(`http://localhost:8088/journalEntries/${entryId}`)
+        .then(resp => resp.json())
+        .then(entry => {
+            hiddenEntryId.value = entry.id
+            entryDate.value = entry.date
+            entryConcepts.value = entry.concepts
+            entryContents.value = entry.contents
+            entryMood.value = entry.mood
         })
-
-    },
-        entryDeleteEventListener: () => {
-            const entryContainer = document.querySelector(".entryLog");
-
-            entryContainer.addEventListener("click", (event) => {
-                console.log("been clicked")
-                if (event.target.id.startsWith("deleteEntry--")) {
-                    const deleteBtnId = event.target.id;
-                    const deleteBtnArray = deleteBtnId.split("--");
-                    const entryToDelete = deleteBtnArray[1];
-
-                    apiActions.deleteJournalEntry(entryToDelete)
-                        .then(apiActions.getEntries)
-                        .then(domOperations.renderJournalEntries)
-                }
-            })
-        }
-    
 };
-export default eventManager
 
-/*
-recipeDeleteEventListener: () => {
-    recipeList.addEventListener("click", (event) => {
-        if (event.target.id.startsWith("deleteRecipe--")) {
-            const deleteBtnId = event.target.id;
-            const deleteBtnArray = deleteBtnId.split("--");
-            const recipeIdToDelete = deleteBtnArray[1];
+export default {
 
-            const recipeId = event.target.id.split("--")[1]
+    entryDeleteEventListener: () => {
+        const entryContainer = document.querySelector(".entryLog");
 
-            apiActions.deleteRecipe(recipeIdToDelete)
-                .then(apiActions.getAllRecipes)
-                .then(renderRecipes);
-        } else if (event.target.id.startsWith("editRecipe--")) {
-            const recipeIdToEdit = event.target.id.split("--")[1]*/
+        entryContainer.addEventListener("click", (event) => {
+            if (event.target.id.startsWith("deleteEntry--")) {
+                const deleteBtnId = event.target.id;
+                const deleteBtnArray = deleteBtnId.split("--");
+                const entryToDelete = deleteBtnArray[1];
 
-/*
-    This function will get the recipe from the API
-    and populate the form fields (see below)
-*/
-/*
-            updateFormFields(recipeIdToEdit)
-        }
-    })
+                apiActions.deleteJournalEntry(entryToDelete)
+                    .then(apiActions.getEntries)
+                    .then(domOperations.renderJournalEntries)
+            } else if (event.target.id.startsWith("editEntry--")) {
+                const entryToEdit = event.target.id.split("--")[1]
+                editFormFields(entryToEdit)
+            }
+        })
+    }
+
 }
-}*/
 
 
 
