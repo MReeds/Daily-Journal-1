@@ -40,7 +40,6 @@ let saveEntryBtn = {
 
             if (entryIdInput.value !== "") {
                 entry.id = parseInt(entryIdInput.value);
-                console.log(entryIdInput)
                 apiActions.updateEntry(entry)
                     .then(apiActions.getEntries)
                     .then(domOperations.renderJournalEntries)

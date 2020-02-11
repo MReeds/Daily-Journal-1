@@ -1,0 +1,10 @@
+:root {
+    --button-font-color: rgb(255, 255, 255);
+    --button-bg: white;
+    --dark-gold: rgb(223, 186, 1);
+    --bright-gold: rgb(243, 197, 0);
+    --dark-red: rgb(223, 54, 46);
+    --bright-red: rgb(255, 65, 55);
+    --dark-blue: rgb(0, 104, 194);
+    --bright-blue: rgb(0, 116, 218);
+}

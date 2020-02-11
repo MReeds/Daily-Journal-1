@@ -1,4 +1,10 @@
+@import 'root.css';
+
 body form fieldset label {
     display: flex;
     flex-direction: column;
+};
+
+body h1 {
+    color: blue
 }
