@@ -1,10 +1,110 @@
 @import 'root.css';
 
-body form fieldset label {
+.journal-entry-fieldset {
     display: flex;
     flex-direction: column;
-};
+    align-items: center;
+    flex-wrap: wrap;
+}
 
-body h1 {
-    color: blue
+body {
+    /* background-image: url(https://www.satellitetoday.com/wp-content/uploads/2019/06/Screen-Shot-2019-06-13-at-5.50.12-PM-800x490.png); */
+    background-color: darkgray;
+}
+
+body>h1 {
+    display: flex;
+    justify-content: center;
+    background-color: teal;
+}
+
+.date {
+    border: 1px solid black;
+    margin: 5px;
+    width: 50%;
+    padding: 5px;
+    background-color: darkgray, 2;
+}
+
+div.date label {
+    display: flex;
+}
+
+.concepts {
+    border: 1px solid black;
+    margin: 5px;
+    width: 50%;
+    padding: 5px;
+}
+
+div.concepts label {
+    display: flex;
+}
+
+.contents {
+    border: 1px solid black;
+    margin: 5px;
+    width: 50%;
+    padding: 5px;
+}
+
+div.contents label {
+    display: flex;
+}
+
+.mood {
+    border: 1px solid black;
+    margin: 5px;
+    width: 50%;
+    padding: 5px;
+}
+
+div.mood label {
+    display: flex;
+}
+
+.mood-selector {
+    display: flex;
+    width: 100%;
+    align-items: center;
+}
+
+.radio-and-search {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.radio-moods {
+    justify-content: start;
+    text-align: center;
+    width: 60%;
+    border: 1px solid black;
+    padding: 5px;
+    margin: 5px;
+}
+
+.record-button {
+    display: flex;
+    justify-content: center;
+    background-color: teal;
+}
+
+#record-button {
+    /* display: flex; */
+    display: flex;
+    ;
+    margin: 10px;
+    align-content: center;
+}
+
+.search-div {
+    /* display: flex; */
+    justify-content: end;
+    text-align: center;
+    width: 40%;
+    height: 25px;
+    padding: 5px;
+    margin: 5px;
+    border: 1px solid black;
 }
