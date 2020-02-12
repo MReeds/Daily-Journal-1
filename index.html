@@ -2,30 +2,30 @@
 <html lang="en">
 
 <head>
-    <link rel="stylesheet" href="styles/journal.css">
+    <link rel="stylesheet" href="./styles/journal.css">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Daily Journal</title>
 </head>
 
 <body>
-    <h1>Daily Journal 1</h1>
-    <form action="">
-        <input type="hidden" id="entryId" value=""/>
-        <fieldset>
+    <h1>Daily Journal</h1>
+    <div class="journal-entry-fieldset">
+        <input type="hidden" id="entryId" value="" />
+        <div class="date">
             <label for="journalDate">Date of entry</label>
             <input type="date" name="journalDate" id="journalDate">
-        </fieldset>
-        <fieldset>
+        </div>
+        <div class="concepts">
             <label for="conceptsCovered">Concepts covered</label>
             <input type="text" name="concepts" id="concepts">
-        </fieldset>
-        <fieldset>
+        </div>
+        <div class="contents">
             <label for="journalEntry">Journal entry</label>
             <input type="text" name="entry" id="contents">
-        </fieldset>
-        <fieldset>
+        </div>
+        <div class="mood">
             <label for="moodForTheDay">Mood for the day</label>
             <select name="moods" id="mood">
                 <option value="angry">Angry</option>
@@ -34,19 +34,30 @@
                 <option value="happy">Happy</option>
                 <option value="excited">Excited</option>
             </select>
-        </fieldset>
-        <input id="record-button" type="button" value="Record Journal Entry">
-        <fieldset>
-            <legend>
-                <label for="moodSelector"><strong>Filter Journal Entries by Mood</strong></label>
-                <input type="radio" value="angry" name="mood">Angry
-                <input type="radio" value="confused" name="mood">Confused
-                <input type="radio" value="sad" name="mood">Sad
-                <input type="radio" value="happy" name="mood">Happy
-                <input type="radio" value="excited" name="mood">Excited
-            </legend>
-        </fieldset>
-    </form>
+        </div>
+        </div>
+        <div class="record-button">
+        <input id="record-button" type="button" value="Record Journal Entry" class="record-btn">
+        </div>
+        <div class="radio-and-search">
+            <div class="radio-btns">
+                <div class="radio-moods">
+                    <legend>
+                        <label class="mood-selector" for="moodSelector"><strong>Filter Journal Entries by
+                                Mood</strong></label>
+                        <input type="radio" value="angry" name="mood">Angry
+                        <input type="radio" value="confused" name="mood">Confused
+                        <input type="radio" value="sad" name="mood">Sad
+                        <input type="radio" value="happy" name="mood">Happy
+                        <input type="radio" value="excited" name="mood">Excited
+                    </legend>
+                </div>
+            </div>
+            <div class="search-div">
+                <label class="search-label"><strong>Search Journal Entries: </strong></label>
+                <input type="search" class="search-box" placeholder="Enter search term" />
+            </div>
+        </div>
     <article class="entryLog">
 
     </article>
